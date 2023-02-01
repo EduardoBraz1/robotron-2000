@@ -5,7 +5,7 @@
 }
 
 * {
-    box-sizing: border-box;
+    
 }
 
 body {
@@ -17,7 +17,8 @@ body {
     font-weight: 300;
 }
 
-body, input {
+body,
+input {
     font-family: 'Teko', sans-serif;
 }
 
@@ -30,19 +31,51 @@ main {
 }
 
 .robotron {
-    background: url(../img/estrutura.png) no-repeat;
-    background-position: center center;
-    margin: 0;
-    flex-basis: 40%;
     position: relative;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+}
+
+.botoes {
+    position: relative;
+    display: flex;
+    align-self: flex-end;
+    gap: 1rem;
+    width: 100%;
+}
+
+.alterar {
+    background-color: rgba(255, 255, 255, 0.6);
+    border: 1px solid white;
+    color: black;
+    padding: 8px 15px;
+    border-radius: 50px;
+    font-weight: 700;
+    cursor: pointer;
+    gap: 10px;
+    width: 100px;
+    height: 100px;
+}
+
+.alterar:hover {
+    background-color: #888585e1;
+}
+
+.alterar:active {
+    background-color: #585757e1;
+    border: 1px solid black;
+}
+
+.alterar img {
+    width: 100%;
 }
 
 .robo {
-    height: 110%;
+    height: 100%;
     z-index: 1;
-    position: absolute;
-    left: -20%;
-    top: -5%;
+    position: relative;
 }
 
 .titulo {
@@ -55,11 +88,11 @@ main {
     line-height: 0.8;
     writing-mode: vertical-rl;
     text-orientation: mixed;
-    color: rgba(255,255,255,0.8)
+    color: rgba(255, 255, 255, 0.8)
 }
 
 .box {
-    background: rgba(0,0,0,0.6);
+    background: rgba(0, 0, 0, 0.6);
     clip-path: polygon(calc(100% - 30px) 0, 100% 30px, 100% calc(100% - 30px), calc(100% - 30px) 100%, 30px 100%, 0 calc(100% - 30px), 0 30px, 30px 0);
     border-left: 5px solid var(--main-cinza);
     height: 80%;
@@ -72,7 +105,8 @@ main {
 }
 
 .montador {
-    height: 100%;;
+    height: 100%;
+    ;
 }
 
 .montador-conteudo {
@@ -210,18 +244,19 @@ main {
 }
 
 @media screen and (max-width: 1600px) {
-    body { 
+    body {
         font-size: 14px;
     }
+
     main {
         width: 90vw;
-        height: 80vh;
+        height: 85vh;
         margin: 5vh auto;
     }
 }
 
 @media screen and (max-width: 1200px) {
-    body { 
+    body {
         font-size: 13px;
     }
 
@@ -229,5 +264,64 @@ main {
         width: 96vw;
         height: 80vh;
         margin: 10vh auto;
+    }
+}
+
+@media screen and (max-width: 920px) {
+    main {
+        width: 100vw;
+        height: 100vh;
+        margin: 0 auto;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .titulo {
+        margin-top: 1.5rem;
+        display: flex;
+        justify-content: flex-start;
+        transform: none;
+        writing-mode: horizontal-tb;
+        position: static;
+        font-size: 2rem;
+        text-align: center;
+
+    }
+    .robotron {
+        background: none;
+    }
+
+    .botoes {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .robo {
+        width: 100vw;
+        position: static;
+        z-index: 0;
+    }
+    .estatisticas {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+        height: auto;
+    }
+
+    .producao {
+        float:none;
+        align-self: center;
+        margin: 1rem auto;
+        display: flex;
+        margin-bottom: 20%;
+    }
+
+    .equipamentos {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        box-sizing: border-box;
+        height: auto;
     }
 }
